@@ -28,6 +28,7 @@ export const AddEmployee = () => {
     
   return (
     <div className='employee-form' >
+      <h2 className="employee-form-header">Add a New Employee</h2>
         <div className="information">
         <label htmlFor="">Name</label>
         <input type="text" ref={name} />
