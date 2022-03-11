@@ -18,6 +18,7 @@ const db = mysql.createConnection({
     
     
 })
+// DB CONNECT
 // db.connect((err) => {
 //     if (err) {
 //         throw err
@@ -25,8 +26,10 @@ const db = mysql.createConnection({
 //     console.log('MySQL Connected')
 // })
 
-// ROUTES & CONTROLLERS
 
+/******* ROUTES & CONTROLLERS *******/ 
+
+// CREATE DB
 // app.get('/create', (req, res) => {
 //     let sql = 'CREATE DATABASE employees'
 //     db.query(sql, err => {
@@ -37,6 +40,7 @@ const db = mysql.createConnection({
 //     })
 // })
 
+// CREATE NEW EMPLOYEE 
 app.post('/create', (req, res) => {
     const name = req.body.name;
     const age = req.body.age;
@@ -57,6 +61,22 @@ db.query(
          }
      }
      )
+})
+
+// GET EMPLOYEES  
+app.get('/employees', (req, res) => {
+    db.query('SELECT * FROM employees',
+     (err, result) => {
+         if (err) {
+             console.log(err)
+         } else {
+             res.status(200).json({
+                 message: "Found Employees",
+                 result,
+             })
+         }
+
+     })
 })
 
 

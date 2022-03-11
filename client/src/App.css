@@ -5,6 +5,14 @@
     justify-content: center;
   }
 
+  .app-border {
+      color: black;
+      width: 85%;
+      border: .5px solid black;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+  } 
+
   /********* ADD EMPLOYEE COMPONENT *********/
   
   .employee-form {
@@ -42,7 +50,7 @@
     width: 13em;
     height: 3em;
     border-radius: 15px;
-    margin-top: 2em;
+    margin-top: 5vh;
     align-self: center;
     border: 2.5px solid black;
     background-color: cornflowerblue;
@@ -66,3 +74,20 @@
      flex-direction: column;
      justify-content: center;   
     }
+
+    .show-employees {
+        width: 13em;
+        height: 3em;
+        border-radius: 15px;
+        align-self: center;
+        border: 2.5px solid black;
+        background-color: cornflowerblue;
+        font-weight: 600;
+        color: aliceblue;
+    }
+
+    .show-employees:hover {
+        transform: scale(1.07);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }

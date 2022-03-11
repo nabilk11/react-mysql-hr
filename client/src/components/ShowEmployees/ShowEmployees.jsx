@@ -7,8 +7,8 @@ export const ShowEmployees = () => {
 
     const getEmployees = () => {
         axios.get('http://localhost:3001/employees')
-        .then(() => {
-
+        .then((res) => {
+            console.log(res)
         })
     }
   return (
