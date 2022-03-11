@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import '../../App.css';
+import axios from 'axios';
 
 export const AddEmployee = () => {
     const name = useRef();
@@ -8,8 +9,19 @@ export const AddEmployee = () => {
     const position = useRef();
     const wage = useRef();
 
-    const displayInfo = () => {
-        console.log()
+    const addEmployee = () => {
+      const newEmployee = {
+        name: name.current.value,
+        age: age.current.value,
+        country: country.current.value,
+        position: position.current.value,
+        wage: wage.current.value,
+      }
+      console.log(newEmployee)
+        axios.post('http://localhost:3001/create', newEmployee)
+        .then(()=> {
+          console.log('SUCCESS')
+        })
     }
     
   return (
@@ -18,14 +30,14 @@ export const AddEmployee = () => {
         <label htmlFor="">Name</label>
         <input type="text" ref={name} />
         <label htmlFor="">Age</label>
-        <input type="text" ref={age} />
+        <input type="number" ref={age} />
         <label htmlFor="">Country</label>
         <input type="text" ref={country} />
         <label htmlFor="">Position</label>
         <input type="text" ref={position} />
         <label htmlFor="">Wage (yr)</label>
         <input type="number"  ref={wage} />
-        <button type="submit">Add Employee</button>
+        <button onClick={addEmployee}>Add Employee</button>
         </div>
     </div>
   )

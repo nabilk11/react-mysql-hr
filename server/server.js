@@ -1,17 +1,41 @@
 const express = require('express');
-const app = express();
-const mysql = require('mysql')
+const mysql = require('mysql');
+const cors = require('cors');
 const PORT = process.env.PORT || 3001;
+
+const app = express();
+
+app.use(cors());
+// JSON BODY PARSER
+app.use(express.json());
 
 // MY SQL DB
 const db = mysql.createConnection({
+    host: '127.0.0.1',
     user: 'root',
-    host: 'localhost',
-    password: '',
+    password: 'pizza123',
     database: 'employeeSystem',
+    
+    
 })
+// db.connect((err) => {
+//     if (err) {
+//         throw err
+//     }
+//     console.log('MySQL Connected')
+// })
 
 // ROUTES & CONTROLLERS
+
+// app.get('/create', (req, res) => {
+//     let sql = 'CREATE DATABASE employees'
+//     db.query(sql, err => {
+//         if (err) {
+//             throw err;
+//         }
+//         res.send("Database Created")
+//     })
+// })
 
 app.post('/create', (req, res) => {
     const name = req.body.name;
