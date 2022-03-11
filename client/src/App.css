@@ -1,8 +1,11 @@
+  /**************** MAIN APP ****************/
 .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
+  /********* ADD EMPLOYEE COMPONENT *********/
   
   .employee-form {
     display: flex;
@@ -54,3 +57,12 @@
     cursor: pointer;
   }
   
+    /********* SHOW EMPLOYEES COMPONENT *********/
+
+    .employees {
+     display: flex;
+     align-items: center;
+     width: 100%;
+     flex-direction: column;
+     justify-content: center;   
+    }

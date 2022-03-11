@@ -51,7 +51,9 @@ db.query(
          if (err) {
              console.log(err)
          } else {
-             res.send("Values Inserted")
+             res.status(201).json({
+                 message: 'Employee Added Successfully',
+             })
          }
      }
      )

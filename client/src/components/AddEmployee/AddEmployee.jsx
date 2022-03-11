@@ -3,6 +3,7 @@ import '../../App.css';
 import axios from 'axios';
 
 export const AddEmployee = () => {
+  const [message, setMessage] = useState('')
     const name = useRef();
     const age = useRef();
     const country = useRef();
@@ -19,9 +20,10 @@ export const AddEmployee = () => {
       }
       console.log(newEmployee)
         axios.post('http://localhost:3001/create', newEmployee)
-        .then(()=> {
-          console.log('SUCCESS')
+        .then((res)=> {
+          setMessage(res.data.message)
         })
+       // window.location.reload();
     }
     
   return (
@@ -37,6 +39,9 @@ export const AddEmployee = () => {
         <input type="text" ref={position} />
         <label htmlFor="">Wage (yr)</label>
         <input type="number"  ref={wage} />
+        <div className="message-container">
+         {message && <span className="message">{message}</span>}
+        </div>
         <button onClick={addEmployee}>Add Employee</button>
         </div>
     </div>
